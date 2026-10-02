@@ -278,44 +278,38 @@
                         </div>
                     </div>
 
-                    <!-- Donation Form -->
-                    <form id="donationForm" onsubmit="processDonation(event)" class="space-y-4">
-                        
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                                Выберите сумму пожертвования:
-                            </label>
-                            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                                <button type="button" onclick="setPresetAmount(250, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">250 ₽</button>
-                                <button type="button" onclick="setPresetAmount(500, this)" class="preset-btn active py-3 rounded-2xl border-2 border-brand-pink bg-brand-pink text-white font-num font-bold text-xs sm:text-sm transition-all shadow-pink-glow">500 ₽</button>
-                                <button type="button" onclick="setPresetAmount(1000, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">1000 ₽</button>
-                                <button type="button" onclick="setPresetAmount(2500, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">2500 ₽</button>
-                                <button type="button" onclick="setPresetAmount(5000, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">5000 ₽</button>
-                            </div>
-                        </div>
+                    <br><link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.35.0">
+<form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8" >
 
-                        <!-- Custom Input -->
-                        <div class="relative">
-                            <input type="number" id="customAmountInput" min="10" placeholder="Другая сумма..." oninput="clearPresetActiveState()" class="w-full bg-brand-softGrey border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 font-num font-bold placeholder-slate-400 focus:outline-none focus:border-brand-blue transition-all text-sm pr-10">
-                            <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">₽</span>
-                        </div>
+    
+    
 
-                        <!-- Name & Anonymous Controls -->
-                        <div class="space-y-2 pt-1">
-                            <input type="text" id="donorNameInput" placeholder="Ваше имя" class="w-full bg-brand-softGrey border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 font-semibold placeholder-slate-400 focus:outline-none focus:border-brand-blue transition-all text-sm">
+    <div class="ym-customer-info">
+        <div class="ym-block-title">О покупателе</div>
+        
+        
+        <input name="custName" class="ym-input" placeholder="ФИО" type="text" value="">
+        
+        
+        
+    </div>
 
-                            <label class="flex items-center gap-3 cursor-pointer select-none px-1 py-0.5">
-                                <input type="checkbox" id="anonymousCheckbox" onchange="toggleAnonymousInput(this)" class="w-4 h-4 rounded border-slate-300 text-brand-pink focus:ring-brand-pink accent-brand-pink cursor-pointer">
-                                <span class="text-xs text-slate-600 font-medium">Пожертвовать анонимно</span>
-                            </label>
-                        </div>
+    <div class="ym-hidden-inputs">
+       
+       
+       
+    </div>
 
-                        <!-- Submit Button -->
-                        <button type="submit" class="w-full py-4 rounded-2xl bg-brand-pink hover:bg-brand-pinkDark text-white font-extrabold uppercase tracking-widest text-xs transition-all shadow-pink-glow hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-heart text-sm animate-subtle-pulse"></i>
-                            <span>Поддержать детей Уфы</span>
-                        </button>
-
+    <input name="customerNumber" type="hidden" value="Сбор средств на развитие детей">
+    
+    <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
+        <div class="ym-input-icon-rub">
+            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any">
+        </div>
+        <button data-text="Оказать помощь" class="ym-btn-pay ym-result-price"><span class="ym-text-crop">Оказать помощь</span> <span class="ym-price-output"></span></button><img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.35.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+    </div>
+<input name="shopId" type="hidden" value="1475662"></form>
+<script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.35.0"></script>
                         <p class="text-[11px] text-center text-slate-400 font-medium">
                             <i class="fa-solid fa-shield-cat text-brand-greenDark mr-1"></i> Все средства направляются на оснащение центра
                         </p>

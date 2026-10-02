@@ -52,98 +52,113 @@
             overflow-x: hidden;
         }
 
-        /* Основной контейнер формы */
+   /* Основной контейнер формы */
   .yoomoney-payment-form {
     background: #ffffff !important;
-    border-radius: 20px !important;
+    border-radius: 24px !important;
     padding: 24px !important;
-    box-shadow: 0 10px 30px rgba(0, 120, 255, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
     border: 1px solid #f0f4f8 !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    max-width: 480px;
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important; /* Убирает вылезание элементов за пределы формы */
   }
 
-  /* Заголовок «О покупателе» */
-  .yoomoney-payment-form .ym-block-title {
-    font-size: 18px !important;
-    font-weight: 700 !important;
-    color: #0d1b2a !important;
-    margin-bottom: 14px !important;
-  }
-
-  /* Поля ввода (ФИО и Сумма) */
-  .yoomoney-payment-form .ym-input {
-    border: 1.5px solid #e2e8f0 !important;
-    border-radius: 12px !important;
-    padding: 12px 16px !important;
-    font-size: 15px !important;
-    outline: none !important;
-    transition: all 0.2s ease !important;
-    background-color: #f8fafc !important;
-    color: #1e293b !important;
-  }
-
-  .yoomoney-payment-form .ym-input:focus {
-    border-color: #0088ff !important;
-    background-color: #ffffff !important;
-    box-shadow: 0 0 0 4px rgba(0, 136, 255, 0.15) !important;
-  }
-
+  /* Блок "О покупателе" */
   .yoomoney-payment-form .ym-customer-info {
     margin-bottom: 20px !important;
   }
 
-  /* Блок суммы и кнопки */
+  .yoomoney-payment-form .ym-block-title {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Поле ввода ФИО */
+  .yoomoney-payment-form .ym-input {
+    width: 100% !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    background-color: #f8fafc !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+  }
+
+  .yoomoney-payment-form .ym-input:focus {
+    border-color: #0088ff !important;
+    box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.15) !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Контейнер нижних элементов */
   .yoomoney-payment-form .ym-payment-btn-block {
     display: flex !important;
+    flex-wrap: wrap !important; /* Разрешаем перенос на новую строку */
     align-items: center !important;
+    justify-content: space-between !important;
     gap: 12px !important;
-    flex-wrap: wrap !important;
-    margin-top: 15px !important;
+    margin-top: 20px !important;
+    padding-top: 0 !important;
+    height: auto !important;
+    float: none !important;
   }
 
+  /* Сбрасываем стандартные линии/псевдоэлементы ЮKassa */
+  .yoomoney-payment-form .ym-payment-btn-block::before,
+  .yoomoney-payment-form .ym-payment-btn-block::after {
+    display: none !important;
+  }
+
+  /* Поле ввода суммы */
   .yoomoney-payment-form .ym-input-icon-rub {
-    position: relative !important;
-    flex: 1 1 130px !important;
+    flex: 1 1 140px !important;
+    min-width: 120px !important;
+    margin: 0 !important;
+    float: none !important;
   }
 
-  /* Кнопка оплаты (Розовый градиент в стиле кнопки «ПОМОЧЬ ДЕТЯМ») */
+  /* Кнопка оплаты */
   .yoomoney-payment-form .ym-btn-pay {
+    flex: 1 1 auto !important;
     background: linear-gradient(135deg, #ff007a 0%, #e6006b 100%) !important;
     color: #ffffff !important;
     border: none !important;
-    border-radius: 25px !important;
-    padding: 12px 24px !important;
+    border-radius: 30px !important;
+    padding: 14px 24px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
-    font-size: 15px !important;
     cursor: pointer !important;
-    transition: all 0.25s ease !important;
-    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.3) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    text-align: center !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.35) !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+    height: auto !important;
+    line-height: normal !important;
+    float: none !important;
   }
 
   .yoomoney-payment-form .ym-btn-pay:hover {
-    background: linear-gradient(135deg, #e6006b 0%, #cc005f 100%) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(255, 0, 122, 0.4) !important;
-  }
-
-  .yoomoney-payment-form .ym-btn-pay:active {
-    transform: translateY(0) !important;
+    box-shadow: 0 6px 20px rgba(255, 0, 122, 0.45) !important;
   }
 
   /* Логотип ЮKassa */
   .yoomoney-payment-form .ym-logo {
-    opacity: 0.7 !important;
-    transition: opacity 0.2s ease !important;
+    width: 100px !important;
+    height: auto !important;
+    margin-top: 8px !important;
+    flex-basis: 100% !important; /* Выносим логотип на отдельную строчку снизу */
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    opacity: 0.6 !important;
   }
-
-  .yoomoney-payment-form .ym-logo:hover {
-    opacity: 1 !important;
-  }
-
         .font-num {
             font-family: 'Unbounded', sans-serif;
             letter-spacing: -0.02em;

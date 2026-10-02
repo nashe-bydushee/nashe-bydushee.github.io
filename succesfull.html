@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спасибо за ваше пожертвование! | АНО ДДРЦ «Наше Будущее»</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0088FF',
+              blueLight: '#E6F3FF',
+              pink: '#FF007A',
+              pinkLight: '#FFE6F2',
+              gold: '#FFB800',
+              goldLight: '#FFF8E6',
+              bgWarm: '#FAF9F6'
+            }
+          },
+          fontFamily: {
+            sans: ['Nunito', 'sans-serif'],
+            heading: ['Comfortaa', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF9F6;
+      background-image: radial-gradient(#E6F3FF 1.5px, transparent 1.5px), radial-gradient(#FFE6F2 1.5px, #FAF9F6 1.5px);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* Floating Hearts & Stars Animation */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.8) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-45px) scale(1.1) rotate(12deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) scale(0.9) rotate(-10deg);
+        opacity: 0;
+      }
+    }
+
+    .heart-float {
+      position: absolute;
+      animation: floatUp 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Pulse Glow */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 10px 30px rgba(0, 136, 255, 0.15);
+      }
+      50% {
+        box-shadow: 0 15px 40px rgba(255, 0, 122, 0.25);
+      }
+    }
+
+    .glow-card {
+      animation: pulseGlow 4s infinite ease-in-out;
+    }
+
+    /* Cute Sticky Note Visuals */
+    .sticky-note {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .sticky-note:hover {
+      transform: scale(1.05) rotate(0deg) !important;
+      z-index: 10;
+    }
+
+    /* Smooth Modal Backdrop */
+    .modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+  <!-- Top Decorative Header Bar -->
+  <header class="w-full bg-white/90 backdrop-blur-md border-b border-sky-100 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Logo Container -->
+      <a href="#" class="flex items-center gap-3 group">
+        <!-- SVG / Graphic Representation of "НАШЕ БУДУЩЕЕ" Logo -->
+        <div class="h-12 w-auto flex items-center">
+          <svg viewBox="0 0 320 120" class="h-10 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Magenta Frame / Corner Accent -->
+            <path d="M15 45 L25 100 L180 98" stroke="#FF007A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Blue Text: НАШЕ -->
+            <text x="35" y="55" font-family="'Comfortaa', sans-serif" font-weight="900" font-size="36" fill="#0088FF" letter-spacing="1">НАШЕ</text>
+            <!-- Blue Text: БУДУЩЕЕ -->
+            <text x="42" y="92" font-family="'Comfortaa', sans-serif" font-weight="900" font-size="34" fill="#0088FF" letter-spacing="0.5">БУДУЩЕЕ</text>
+            <!-- Pink Reading Child Silhouette -->
+            <g transform="translate(205, 30)">
+              <!-- Child Head -->
+              <circle cx="20" cy="12" r="11" fill="#FF007A"/>
+              <!-- Child Body sitting -->
+              <path d="M20 23 C10 23 5 32 8 42 C10 48 18 52 28 50 C38 48 42 38 35 28 C30 23 25 23 20 23 Z" fill="#FF007A"/>
+              <!-- Legs extended -->
+              <path d="M28 46 L50 48 C54 49 56 46 52 42 L36 34" stroke="#FF007A" stroke-width="7" stroke-linecap="round"/>
+              <!-- Book in hands -->
+              <path d="M12 30 L22 25 L30 34 L20 38 Z" fill="#FFFFFF"/>
+            </g>
+            <!-- Decorative Sparkles -->
+            <path d="M280 20 L283 27 L290 30 L283 33 L280 40 L277 33 L270 30 L277 27 Z" fill="#00E575"/>
+            <path d="M90 10 L92 16 L98 18 L92 20 L90 26 L88 20 L82 18 L88 16 Z" fill="#FF007A"/>
+            <path d="M185 85 L187 90 L192 92 L187 94 L185 99 L183 94 L178 92 L183 90 Z" fill="#FF007A"/>
+          </svg>
+        </div>
+        <div class="hidden sm:block border-l border-slate-200 pl-3">
+          <span class="font-heading font-bold text-xs text-slate-800 block leading-tight">АНО ДДРЦ</span>
+          <span class="text-[11px] text-brand-blue font-semibold block">«Наше Будущее»</span>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <div class="flex items-center gap-3">
+        <a href="https://nashe-bydushee.github.io/" class="text-xs font-bold text-slate-600 hover:text-brand-blue px-3.5 py-2 rounded-xl hover:bg-sky-50 transition flex items-center gap-2 border border-slate-200/80">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>На главную</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-3xl mx-auto px-4 py-8 sm:py-12 flex-grow w-full">
+
+    <!-- Hero Section -->
+    <section class="text-center relative mb-8">
+      
+      <!-- Floating Decorative Hearts & Stars -->
+      <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <i class="fa-solid fa-heart text-brand-pink/40 text-2xl heart-float" style="left: 10%; animation-delay: 0s;"></i>
+        <i class="fa-solid fa-star text-brand-gold text-xl heart-float" style="left: 85%; animation-delay: 1.2s;"></i>
+        <i class="fa-solid fa-heart text-brand-blue/40 text-3xl heart-float" style="left: 75%; animation-delay: 2.5s;"></i>
+        <i class="fa-solid fa-sparkles text-brand-pink text-2xl heart-float" style="left: 20%; animation-delay: 1.8s;"></i>
+      </div>
+
+      <!-- Animated Success Icon Badge -->
+      <div class="inline-flex items-center justify-center relative mb-5">
+        <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-brand-blue via-sky-400 to-brand-pink flex items-center justify-center text-white shadow-xl shadow-sky-200 transform hover:rotate-6 transition-transform">
+          <i class="fa-solid fa-heart text-4xl sm:text-5xl drop-shadow-md"></i>
+        </div>
+        <div class="absolute -top-2 -right-2 bg-brand-gold text-white w-9 h-9 rounded-full flex items-center justify-center shadow-lg border-2 border-white animate-bounce">
+          <i class="fa-solid fa-check text-sm"></i>
+        </div>
+      </div>
+
+      <h1 class="font-heading text-2xl sm:text-4xl font-bold text-slate-800 mb-3 leading-snug">
+        Спасибо за ваше доброе сердце! <span class="inline-block animate-pulse">✨</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto font-medium leading-relaxed">
+        Оплата успешно завершена. Ваша помощь открывает новые возможности для развития и счастливого будущего наших подопечных!
+      </p>
+    </section>
+
+    <!-- Donation Amount Highlight Card -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-sky-100 mb-10 glow-card relative overflow-hidden text-center">
+      <!-- Decorative Top Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2.5 bg-gradient-to-r from-brand-blue via-brand-pink to-brand-gold"></div>
+
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-4">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        Пожертвование успешно получено
+      </div>
+
+      <span class="text-xs sm:text-sm text-slate-400 uppercase font-bold tracking-wider block mb-1">
+        Сумма вашей помощи
+      </span>
+
+      <div class="font-heading text-4xl sm:text-6xl font-extrabold text-slate-800 my-2 flex items-center justify-center gap-2">
+        <span class="bg-gradient-to-r from-brand-blue to-brand-pink bg-clip-text text-transparent">
+          1 500 ₽
+        </span>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mt-3">
+        Средства поступили на счет <strong class="text-slate-700">АНО ДДРЦ «Наше Будущее»</strong> и будут направлены на программы детского развития.
+      </p>
+    </section>
+
+    <!-- Visual Impact Section -->
+    <section class="mb-12">
+      <div class="text-center mb-8">
+        <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-800 mb-2">
+          Как ваш вклад меняет жизнь детей
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm max-w-lg mx-auto">
+          Каждое пожертвование превращается в конкретные материалы и развивающие занятия
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Impact Item 1 -->
+        <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-blueLight text-brand-blue flex items-center justify-center text-3xl mb-4 shadow-sm">
+            🎨
+          </div>
+          <h3 class="font-bold text-slate-800 text-base mb-1">Творчество</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Краски, пластилин и наборы для арт-терапии, раскрывающие детские таланты.
+          </p>
+        </div>
+
+        <!-- Impact Item 2 -->
+        <div class="bg-white p-6 rounded-3xl border border-pink-100 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-pinkLight text-brand-pink flex items-center justify-center text-3xl mb-4 shadow-sm">
+            📖
+          </div>
+          <h3 class="font-bold text-slate-800 text-base mb-1">Обучение</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Развивающие пособия, книги и логопедические материалы для занятий.
+          </p>
+        </div>
+
+        <!-- Impact Item 3 -->
+        <div class="bg-white p-6 rounded-3xl border border-amber-100 shadow-sm flex flex-col items-center text-center transform hover:-translate-y-1 transition-all">
+          <div class="w-16 h-16 rounded-2xl bg-brand-goldLight text-brand-gold flex items-center justify-center text-3xl mb-4 shadow-sm">
+            🧩
+          </div>
+          <h3 class="font-bold text-slate-800 text-base mb-1">Развитие</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Специальные конструкторы и игры для развития моторики и мышления.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share & Action Buttons -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-md text-center">
+      <h3 class="font-heading text-lg sm:text-xl font-bold text-slate-800 mb-2">
+        Расскажите о нас
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mb-6">
+        Вы можете вдохновить друзей помочь детям в центре «Наше Будущее»
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <!-- Telegram -->
+        <a href="https://t.me/share/url?url=https://нашебудущее.рф&text=Я%20помог%20детям%20в%20АНО%20ДДРЦ%20«Наше%20Будущее»!%20Присоединяйтесь!" target="_blank" class="px-4 py-2.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 font-bold text-xs flex items-center gap-2 border border-sky-200 transition">
+          <i class="fa-brands fa-telegram text-base"></i> Telegram
+        </a>
+
+        <!-- VK -->
+        <a href="https://vk.com/share.php?url=https://нашебудущее.рф" target="_blank" class="px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold text-xs flex items-center gap-2 border border-blue-200 transition">
+          <i class="fa-brands fa-vk text-base"></i> ВКонтакте
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://api.whatsapp.com/send?text=Я%20помог%20детям%20в%20АНО%20ДДРЦ%20«Наше%20Будущее»!%20Присоединяйтесь!" target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 font-bold text-xs flex items-center gap-2 border border-emerald-200 transition">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+        </a>
+
+        <!-- Copy Link -->
+        <button onclick="copyLink()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-2 border border-slate-200 transition">
+          <i class="fa-solid fa-link text-base"></i>
+          <span id="copy-btn-text">Скопировать ссылку</span>
+        </button>
+      </div>
+
+      <div class="pt-6 border-t border-slate-100 flex flex-wrap justify-center items-center gap-4 text-xs font-bold">
+        <a href="#" class="text-brand-blue hover:underline flex items-center gap-1.5">
+          <i class="fa-solid fa-child text-sm"></i>
+          <span>Узнать больше о программах центра</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: Leave a wish -->
+  <div id="wishModal" class="fixed inset-0 z-50 flex items-center justify-center hidden p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 modal-backdrop" onclick="closeWishModal()"></div>
+
+    <!-- Modal Window -->
+    <div class="relative bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl z-10 border border-sky-100 transform transition-all">
+      <button onclick="closeWishModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-brand-pinkLight text-brand-pink mx-auto flex items-center justify-center text-xl mb-2">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-slate-800">Пожелайте детям добра</h3>
+        <p class="text-xs text-slate-500">Ваше сообщение увидят наши педагоги и воспитанники</p>
+      </div>
+
+      <form onsubmit="submitWish(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Ваше имя или семья</label>
+          <input type="text" id="wishAuthor" required placeholder="Например, Анна В. или Семья Ивановых" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Пожелание</label>
+          <textarea id="wishText" required rows="3" placeholder="Напишите несколько добрых слов..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-brand-blue to-brand-pink text-white font-bold rounded-xl shadow-lg shadow-sky-200 hover:opacity-95 transition">
+          Опубликовать на стене
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl text-xs font-bold flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+    <span id="toast-message">Сообщение скопировано!</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-xs">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="text-center md:text-left flex flex-col md:flex-row items-center gap-4">
+        <!-- Logo SVG monochrome / colored in footer -->
+        <div class="bg-white/10 p-2 rounded-2xl backdrop-blur-sm">
+          <svg viewBox="0 0 320 120" class="h-10 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 45 L25 100 L180 98" stroke="#FF007A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="35" y="55" font-family="'Comfortaa', sans-serif" font-weight="900" font-size="36" fill="#0088FF">НАШЕ</text>
+            <text x="42" y="92" font-family="'Comfortaa', sans-serif" font-weight="900" font-size="34" fill="#0088FF">БУДУЩЕЕ</text>
+            <g transform="translate(205, 30)">
+              <circle cx="20" cy="12" r="11" fill="#FF007A"/>
+              <path d="M20 23 C10 23 5 32 8 42 C10 48 18 52 28 50 C38 48 42 38 35 28 C30 23 25 23 20 23 Z" fill="#FF007A"/>
+              <path d="M28 46 L50 48 C54 49 56 46 52 42 L36 34" stroke="#FF007A" stroke-width="7" stroke-linecap="round"/>
+              <path d="M12 30 L22 25 L30 34 L20 38 Z" fill="#FFFFFF"/>
+            </g>
+          </svg>
+        </div>
+
+        <div>
+          <span class="font-heading font-bold text-white text-sm block">АНО ДДРЦ «Наше Будущее»</span>
+          <p class="text-slate-500">Автономная некоммерческая организация Детский дошкольный развивающий центр</p>
+        </div>
+      </div>
+
+      <div class="text-center md:text-right">
+        <span class="block text-slate-300 font-bold mb-1">Связь с центром</span>
+        <a href="mailto:info@nashebudushchee.ru" class="text-slate-400 hover:text-white transition block">info@nashebudushchee.ru</a>
+      </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
+      <span>© 2026 АНО ДДРЦ «Наше Будущее». Все права защищены.</span>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-slate-400">Политика конфиденциальности</a>
+        <a href="#" class="hover:text-slate-400">Публичная оферта</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Launch festive confetti on page load
+    window.onload = function() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#0088FF', '#FF007A', '#FFB800', '#00E575']
+        });
+      }
+    };
+
+    // Modal controls
+    function openWishModal() {
+      document.getElementById('wishModal').classList.remove('hidden');
+    }
+
+    function closeWishModal() {
+      document.getElementById('wishModal').classList.add('hidden');
+    }
+
+    // Submit Wish Form Logic
+    function submitWish(e) {
+      e.preventDefault();
+      const author = document.getElementById('wishAuthor').value.trim();
+      const text = document.getElementById('wishText').value.trim();
+
+      if (!author || !text) return;
+
+      const styles = [
+        { bg: 'bg-sky-50', border: 'border-sky-200', text: 'text-brand-blue', dateText: 'text-sky-600', rotate: 'rotate-1' },
+        { bg: 'bg-pink-50', border: 'border-pink-200', text: 'text-brand-pink', dateText: 'text-pink-600', rotate: '-rotate-2' },
+        { bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', dateText: 'text-amber-600', rotate: 'rotate-2' }
+      ];
+
+      const style = styles[Math.floor(Math.random() * styles.length)];
+
+      const noteHTML = `
+        <div class="sticky-note ${style.bg} p-4 rounded-2xl border ${style.border} shadow-sm ${style.rotate}">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold text-xs ${style.text}">${escapeHTML(author)}</span>
+            <span class="text-[10px] ${style.dateText}">Только что</span>
+          </div>
+          <p class="text-xs text-slate-700 italic">«${escapeHTML(text)}»</p>
+        </div>
+      `;
+
+      const container = document.getElementById('wishes-container');
+      container.insertAdjacentHTML('afterbegin', noteHTML);
+
+      // Reset form & modal
+      document.getElementById('wishAuthor').value = '';
+      document.getElementById('wishText').value = '';
+      closeWishModal();
+
+      showToast('Ваше пожелание опубликовано!');
+
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 30, spread: 50, origin: { y: 0.8 } });
+      }
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    // Copy link helper
+    function copyLink() {
+      const dummyUrl = window.location.href;
+      const textArea = document.createElement('textarea');
+      textArea.value = dummyUrl;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+
+      const btnText = document.getElementById('copy-btn-text');
+      btnText.innerText = 'Ссылка скопирована!';
+      showToast('Ссылка скопирована в буфер обмена!');
+
+      setTimeout(() => {
+        btnText.innerText = 'Скопировать ссылку';
+      }, 3000);
+    }
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = message;
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

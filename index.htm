@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АНО ДДРЦ "Наше будущее" — Детский духовно-развивающий центр в г. Уфа</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Premium Google Fonts: Plus Jakarta Sans & Unbounded for legible modern numbers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&family=Comfortaa:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0085FF',
+                            blueDark: '#0062C4',
+                            pink: '#FF0066',
+                            pinkDark: '#CC0052',
+                            green: '#00E640',
+                            greenDark: '#00B332',
+                            slateDark: '#0F172A',
+                            softGrey: '#F8FAFC',
+                            borderGrey: '#E2E8F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        numbers: ['"Unbounded"', 'sans-serif'],
+                        logo: ['"Comfortaa"', 'cursive', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFFFFF;
+            color: #0F172A;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-num {
+            font-family: 'Unbounded', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        /* Glassmorphism & Visual Depth */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        /* Luxury Soft Glow Shadows */
+        .shadow-luxury {
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.05), 0 15px 35px -15px rgba(0, 133, 255, 0.08);
+        }
+        
+        .shadow-pink-glow {
+            box-shadow: 0 12px 28px -6px rgba(255, 0, 102, 0.35);
+        }
+
+        .shadow-blue-glow {
+            box-shadow: 0 12px 28px -6px rgba(0, 133, 255, 0.25);
+        }
+
+        /* Ambient Blobs */
+        .ambient-blob-1 {
+            background: radial-gradient(circle, rgba(0, 133, 255, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        
+        .ambient-blob-2 {
+            background: radial-gradient(circle, rgba(255, 0, 102, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.88; transform: scale(1.03); }
+        }
+        
+        .animate-subtle-pulse {
+            animation: subtlePulse 3s infinite ease-in-out;
+        }
+
+        /* Custom Modern Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FFFFFF; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF0066; }
+    </style>
+</head>
+<body class="selection:bg-brand-pink selection:text-white relative">
+
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex justify-between items-center">
+            
+            <!-- Precise Vector SVG Logo Recreation -->
+            <a href="#" class="flex items-center group" title="АНО ДДРЦ Наше будущее">
+                <div class="relative py-0.5">
+                    <svg class="w-40 sm:w-48 h-auto" viewBox="0 0 280 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pink Angle Frame -->
+                        <path d="M18 15 V85 H150" stroke="#FF0066" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="18" cy="85" r="4" fill="#FF0066" />
+                        
+                        <!-- Pink & Green Sparkles / Stars -->
+                        <path d="M75 10 L78 20 L88 23 L78 26 L75 36 L72 26 L62 23 L72 20 Z" fill="#FF0066"/>
+                        <path d="M165 65 L167 72 L174 74 L167 76 L165 83 L163 76 L156 74 L163 72 Z" fill="#FF0066"/>
+                        <path d="M55 25 L56 31 L62 32 L56 33 L55 39 L54 33 L48 32 L54 31 Z" fill="#00E640"/>
+                        <path d="M225 25 L226 31 L232 32 L226 33 L225 39 L224 33 L218 32 L224 31 Z" fill="#00E640"/>
+                        
+                        <!-- Pink Silhouette of Child Reading -->
+                        <circle cx="192" cy="18" r="7" fill="#FF0066"/>
+                        <path d="M185 28 C185 28 195 24 200 32 L222 45 C222 45 226 48 220 50 C214 52 205 42 205 42 L198 35 L190 45 C190 45 182 52 180 40 Z" fill="#FF0066"/>
+                        <path d="M202 26 L214 27 L208 38 Z" fill="#FF0066"/>
+                        
+                        <!-- Styled Bold Blue Text "НАШЕ БУДУЩЕЕ" with natural angle -->
+                        <g transform="rotate(-3 100 50)">
+                            <text x="65" y="52" fill="#0085FF" font-family="'Comfortaa', cursive, sans-serif" font-weight="800" font-size="31" letter-spacing="-0.5">НАШЕ</text>
+                            <text x="68" y="83" fill="#0085FF" font-family="'Comfortaa', cursive, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">БУДУЩЕЕ</text>
+                        </g>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Quick Contacts Info Minimalist Display -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-semibold text-slate-600">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-blue text-sm">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    <div>
+                        <span class="block text-slate-900 font-bold">г. Уфа</span>
+                        <span class="text-slate-400 font-normal">ул. Дмитрия Купцова, д. 4</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-brand-greenDark text-sm">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                    <div>
+                        <span class="block text-slate-900 font-bold font-num">09:00 — 21:00</span>
+                        <span class="text-slate-400 font-normal">Ежедневно</span>
+                    </div>
+                </div>
+
+                <a href="tel:89371536000" class="flex items-center gap-3 text-slate-900 font-bold hover:text-brand-pink transition-colors">
+                    <span class="w-8 h-8 rounded-full bg-brand-pink/10 text-brand-pink flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <span class="font-num">8 937 153 60 00</span>
+                </a>
+            </div>
+
+            <!-- Header Quick Action CTA -->
+            <a href="#donate-container" class="bg-brand-pink hover:bg-brand-pinkDark text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all shadow-pink-glow hover:scale-105 active:scale-95 flex items-center gap-2.5">
+                <i class="fa-solid fa-heart text-xs"></i>
+                <span class="hidden sm:inline">Помочь детям</span>
+                <span class="sm:hidden">Помочь</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative pt-10 pb-16 px-4 sm:px-8 lg:px-12 overflow-hidden">
+        <div class="ambient-blob-1 absolute -top-20 -left-20 w-[500px] h-[500px] pointer-events-none"></div>
+        <div class="ambient-blob-2 absolute top-1/3 -right-20 w-[600px] h-[600px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start relative z-10">
+            
+            <!-- Left Editorial Text Column -->
+            <div class="lg:col-span-6 space-y-6">
+                
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-widest">
+                    <span class="w-2 h-2 rounded-full bg-brand-pink animate-ping"></span>
+                    Сбор средств на обустройство
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+                    АНО ДДРЦ <br>
+                    <span class="text-brand-blue relative">
+                        «Наше Будущее»
+                        <svg class="absolute -bottom-2 left-0 w-full h-3 text-brand-green/40" viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+                            <path d="M0 8 Q 100 0, 200 8" stroke="currentColor" stroke-width="4" fill="none" />
+                        </svg>
+                    </span>
+                </h1>
+
+                <!-- EXACT WELCOME TEXT (STRICT REQUIREMENT) -->
+                <div class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                    <p class="border-l-4 border-brand-pink pl-4 py-1 font-medium text-slate-900 bg-brand-softGrey p-3 rounded-r-2xl border-y border-r border-slate-200/60">
+                        <strong>АНО ДДРЦ «Наше будущее»</strong> — детский духовно-развивающий центр в городе Уфе (<span class="text-slate-900 font-semibold">ул. Дмитрия Купцова, д. 4</span>). Мы работаем совместно с местной мусульманской религиозной организацией <strong>«Фатых»</strong> и создаём пространство, где дети от 7 лет получают всестороннее развитие в атмосфере уважения, заботы и духовных ценностей.
+                    </p>
+                    
+                    <p class="text-slate-600 leading-relaxed pl-1">
+                        Наш центр — это не просто кружки. Это место, где ребёнок после школы находится в безопасной среде, получает помощь педагогов со сложными темами и домашними заданиями, изучает традиционные ценности, историю и культуру, развивается физически, интеллектуально и творчески.
+                    </p>
+                </div>
+
+                <!-- Trust Badges Grid -->
+                <div class="pt-2 grid grid-cols-2 gap-3 text-xs font-bold text-slate-800">
+                    <div class="flex items-center gap-2.5 bg-brand-softGrey p-3 rounded-2xl border border-slate-200/80">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-pink flex-shrink-0"></span>
+                        <span>Безопасная среда</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-brand-softGrey p-3 rounded-2xl border border-slate-200/80">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-blue flex-shrink-0"></span>
+                        <span>Помощь педагогов</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-brand-softGrey p-3 rounded-2xl border border-slate-200/80">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-greenDark flex-shrink-0"></span>
+                        <span>Духовное развитие</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 bg-brand-softGrey p-3 rounded-2xl border border-slate-200/80">
+                        <span class="w-2.5 h-2.5 rounded-full bg-slate-900 flex-shrink-0"></span>
+                        <span>МРО «Фатых»</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="donate-container" class="lg:col-span-6">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-luxury relative overflow-hidden">
+                    
+                    <!-- Top Status Bar -->
+                    <div class="flex items-center justify-between pb-5 mb-5 border-b border-slate-100">
+                        <div>
+                            <span class="text-[11px] font-extrabold uppercase tracking-widest text-slate-400 block mb-0.5">Целевой сбор</span>
+                            <span class="font-bold text-slate-900 text-sm sm:text-base">Обустройство центра в Уфе</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-greenDark bg-brand-green/10 px-3 py-1 rounded-full">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
+                                <span id="donorsCount" class="font-num">158</span> меценатов
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar Component -->
+                    <div class="mb-6 space-y-3">
+                        <div class="flex justify-between items-baseline">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Собрано</span>
+                                <span id="currentAmountDisplay" class="font-num text-2xl sm:text-3xl font-black text-brand-blue">680 000 ₽</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Цель сбора</span>
+                                <span class="font-num text-lg sm:text-xl font-bold text-slate-800">2 000 000 ₽</span>
+                            </div>
+                        </div>
+
+                        <!-- Progress Line -->
+                        <div class="w-full h-3.5 bg-slate-100 rounded-full overflow-hidden p-0.5 relative">
+                            <div id="progressBar" class="h-full bg-gradient-to-r from-brand-blue via-brand-pink to-brand-green rounded-full transition-all duration-1000 ease-out" style="width: 34%;"></div>
+                        </div>
+
+                        <div class="flex justify-between text-xs font-semibold text-slate-500 pt-0.5">
+                            <span>Осталось: <strong id="remainingAmountDisplay" class="font-num text-slate-900 font-bold">1 320 000 ₽</strong></span>
+                            <span id="percentageDisplay" class="font-num text-brand-pink font-extrabold">34.0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Donation Form -->
+                    <form id="donationForm" onsubmit="processDonation(event)" class="space-y-4">
+                        
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                                Выберите сумму пожертвования:
+                            </label>
+                            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                <button type="button" onclick="setPresetAmount(250, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">250 ₽</button>
+                                <button type="button" onclick="setPresetAmount(500, this)" class="preset-btn active py-3 rounded-2xl border-2 border-brand-pink bg-brand-pink text-white font-num font-bold text-xs sm:text-sm transition-all shadow-pink-glow">500 ₽</button>
+                                <button type="button" onclick="setPresetAmount(1000, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">1000 ₽</button>
+                                <button type="button" onclick="setPresetAmount(2500, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">2500 ₽</button>
+                                <button type="button" onclick="setPresetAmount(5000, this)" class="preset-btn py-3 rounded-2xl border border-slate-200 bg-white text-slate-800 font-num font-bold text-xs sm:text-sm hover:border-brand-blue transition-all">5000 ₽</button>
+                            </div>
+                        </div>
+
+                        <!-- Custom Input -->
+                        <div class="relative">
+                            <input type="number" id="customAmountInput" min="10" placeholder="Другая сумма..." oninput="clearPresetActiveState()" class="w-full bg-brand-softGrey border border-slate-200 rounded-2xl px-4 py-3.5 text-slate-900 font-num font-bold placeholder-slate-400 focus:outline-none focus:border-brand-blue transition-all text-sm pr-10">
+                            <span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">₽</span>
+                        </div>
+
+                        <!-- Name & Anonymous Controls -->
+                        <div class="space-y-2 pt-1">
+                            <input type="text" id="donorNameInput" placeholder="Ваше имя" class="w-full bg-brand-softGrey border border-slate-200 rounded-2xl px-4 py-3 text-slate-900 font-semibold placeholder-slate-400 focus:outline-none focus:border-brand-blue transition-all text-sm">
+
+                            <label class="flex items-center gap-3 cursor-pointer select-none px-1 py-0.5">
+                                <input type="checkbox" id="anonymousCheckbox" onchange="toggleAnonymousInput(this)" class="w-4 h-4 rounded border-slate-300 text-brand-pink focus:ring-brand-pink accent-brand-pink cursor-pointer">
+                                <span class="text-xs text-slate-600 font-medium">Пожертвовать анонимно</span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full py-4 rounded-2xl bg-brand-pink hover:bg-brand-pinkDark text-white font-extrabold uppercase tracking-widest text-xs transition-all shadow-pink-glow hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-heart text-sm animate-subtle-pulse"></i>
+                            <span>Поддержать детей Уфы</span>
+                        </button>
+
+                        <p class="text-[11px] text-center text-slate-400 font-medium">
+                            <i class="fa-solid fa-shield-cat text-brand-greenDark mr-1"></i> Все средства направляются на оснащение центра
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-14 px-4 sm:px-8 bg-brand-softGrey border-y border-slate-200/60">
+        <div class="max-w-6xl mx-auto space-y-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+                <div>
+                    <span class="text-brand-pink text-xs font-extrabold uppercase tracking-widest block mb-1">Благодарность</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Табло меценатов</h2>
+                </div>
+                <p class="text-slate-500 text-xs sm:text-sm max-w-md">
+                    Список неравнодушных людей, поддержавших обустройство центра «Наше будущее».
+                </p>
+            </div>
+
+            <!-- Donors List -->
+            <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm overflow-hidden">
+                <div class="px-6 py-3.5 bg-slate-50 border-b border-slate-200/60 flex justify-between text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+                    <span>Благотворитель</span>
+                    <span>Сумма взноса</span>
+                </div>
+                
+                <div id="donorsListContainer" class="divide-y divide-slate-100 max-h-80 overflow-y-auto">
+                    <!-- Dynamic Rows -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-8 bg-white">
+        <div class="max-w-6xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-brand-blue text-xs font-extrabold uppercase tracking-widest block">Направление работы</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Ключевые направления центра</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="p-6 bg-brand-softGrey rounded-3xl border border-slate-200/60 space-y-3 hover:border-brand-blue transition-all group">
+                    <div class="w-11 h-11 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center text-lg font-bold group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-base">Безопасность</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Защищенное пространство после школы под присмотром опытных педагогов.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-brand-softGrey rounded-3xl border border-slate-200/60 space-y-3 hover:border-brand-pink transition-all group">
+                    <div class="w-11 h-11 rounded-2xl bg-brand-pink/10 text-brand-pink flex items-center justify-center text-lg font-bold group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hands-praying"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-base">Духовность</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Воспитание уважения и традиционных ценностей совместно с МРО «Фатых».
+                    </p>
+                </div>
+
+                <div class="p-6 bg-brand-softGrey rounded-3xl border border-slate-200/60 space-y-3 hover:border-brand-green transition-all group">
+                    <div class="w-11 h-11 rounded-2xl bg-brand-green/15 text-brand-greenDark flex items-center justify-center text-lg font-bold group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-base">Знания</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Помощь со сложными школьными предметами и подготовка домашних заданий.
+                    </p>
+                </div>
+
+                <div class="p-6 bg-brand-softGrey rounded-3xl border border-slate-200/60 space-y-3 hover:border-slate-800 transition-all group">
+                    <div class="w-11 h-11 rounded-2xl bg-slate-900/10 text-slate-900 flex items-center justify-center text-lg font-bold group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-base">Творчество</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Физическое, интеллектуальное и творческое развитие детей от 7 лет.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-8 bg-slate-900 text-white rounded-t-[36px]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="text-brand-green font-extrabold text-xs uppercase tracking-widest block mb-2">Контакты</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Ждем вас в нашем центре!</h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700/80 space-y-1">
+                        <span class="text-slate-400 text-[11px] font-bold uppercase block">Адрес в Уфе</span>
+                        <p class="font-bold text-white text-sm">г. Уфа, ул. Дмитрия Купцова, д. 4</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700/80 space-y-1">
+                        <span class="text-slate-400 text-[11px] font-bold uppercase block">Время работы</span>
+                        <p class="font-bold text-white text-sm font-num">09:00 — 21:00 (Ежедневно)</p>
+                    </div>
+
+                    <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700/80 space-y-1">
+                        <span class="text-slate-400 text-[11px] font-bold uppercase block">Телефон</span>
+                        <a href="tel:89371536000" class="font-extrabold text-brand-pink text-base hover:underline font-num">8 937 153 60 00</a>
+                    </div>
+
+                    <div class="p-4 bg-slate-800/80 rounded-2xl border border-slate-700/80 space-y-1">
+                        <span class="text-slate-400 text-[11px] font-bold uppercase block">Электронная почта</span>
+                        <a href="mailto:buduchee.nashe@mail.ru" class="font-bold text-brand-blue text-sm hover:underline">buduchee.nashe@mail.ru</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-gradient-to-br from-brand-blue to-brand-blueDark p-7 rounded-3xl text-white space-y-4 shadow-blue-glow">
+                <h3 class="text-xl font-extrabold">Внесите вклад в будущее детей!</h3>
+                <p class="text-blue-100 text-xs leading-relaxed">
+                    Все средства пойдут на закупку детской мебели, учебного оборудования и обустройство развивающих зон в Уфе.
+                </p>
+                <a href="#donate-container" class="inline-block w-full py-3.5 rounded-2xl bg-brand-pink hover:bg-brand-pinkDark text-white font-extrabold text-center text-xs uppercase tracking-widest transition-all shadow-pink-glow">
+                    Сделать пожертвование
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-6 px-4 bg-slate-900 text-center border-t border-slate-800 text-xs text-slate-500">
+        <p class="font-bold text-slate-300">АНО ДДРЦ «Наше будущее»</p>
+        <p class="mt-1 text-[11px]">Детский духовно-развивающий центр совместно с МРО «Фатых»</p>
+        <p class="text-[10px] text-slate-600 mt-2">© <span id="copyrightYear"></span> Все права защищены.</p>
+    </footer>
+
+    <!-- Thank You Modal Popup -->
+    <div id="thankYouModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 px-4">
+        <div class="bg-white max-w-md w-full rounded-3xl p-7 text-center space-y-4 shadow-2xl relative">
+            <div class="w-14 h-14 rounded-full bg-brand-pink/10 text-brand-pink flex items-center justify-center text-xl mx-auto shadow-pink-glow">
+                <i class="fa-solid fa-heart animate-subtle-pulse"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900">Спасибо за поддержку!</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed" id="modalTextContent">
+                Ваше пожертвование успешно зачислено.
+            </p>
+            <button onclick="closeThankYouModal()" class="w-full py-3.5 rounded-2xl bg-brand-pink hover:bg-brand-pinkDark text-white font-extrabold text-xs uppercase tracking-widest shadow-pink-glow transition-all">
+                Закрыть
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const TARGET_GOAL = 2000000;
+        let currentRaised = 680000;
+        let selectedPresetAmount = 500;
+
+        let donorsList = [
+            { name: "Александр", amount: 50000, time: "10 минут назад" },
+            { name: "Аноним", amount: 15000, time: "25 минут назад" },
+            { name: "Екатерина", amount: 2500, time: "1 час назад" },
+            { name: "Руслан", amount: 5000, time: "2 часа назад" },
+            { name: "Аноним", amount: 500, time: "3 часа назад" }
+        ];
+
+        document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderDonorsTable();
+            updateProgressBarUI();
+        });
+
+        function setPresetAmount(amount, buttonElement) {
+            selectedPresetAmount = amount;
+            document.getElementById('customAmountInput').value = '';
+
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
+                btn.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-800');
+            });
+
+            if (buttonElement) {
+                buttonElement.classList.add('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
+                buttonElement.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-800');
+            }
+        }
+
+        function clearPresetActiveState() {
+            selectedPresetAmount = 0;
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
+                btn.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-800');
+            });
+        }
+
+        function toggleAnonymousInput(checkbox) {
+            const nameInput = document.getElementById('donorNameInput');
+            if (checkbox.checked) {
+                nameInput.value = '';
+                nameInput.disabled = true;
+                nameInput.placeholder = "Анонимный благотворитель";
+                nameInput.classList.add('opacity-50');
+            } else {
+                nameInput.disabled = false;
+                nameInput.placeholder = "Ваше Имя (для табло меценатов)";
+                nameInput.classList.remove('opacity-50');
+            }
+        }
+
+        function processDonation(e) {
+            e.preventDefault();
+
+            const customValue = parseFloat(document.getElementById('customAmountInput').value);
+            const finalAmount = (customValue && customValue > 0) ? customValue : selectedPresetAmount;
+
+            if (!finalAmount || finalAmount <= 0) {
+                alert('Пожалуйста, выберите или введите сумму пожертвования.');
+                return;
+            }
+
+            const isAnonymous = document.getElementById('anonymousCheckbox').checked;
+            const enteredName = document.getElementById('donorNameInput').value.trim();
+            const donorName = (isAnonymous || !enteredName) ? "Анонимный благотворитель" : enteredName;
+
+            currentRaised += finalAmount;
+            updateProgressBarUI();
+
+            donorsList.unshift({
+                name: donorName,
+                amount: finalAmount,
+                time: "Только что"
+            });
+            renderDonorsTable();
+
+            const countEl = document.getElementById('donorsCount');
+            countEl.textContent = parseInt(countEl.textContent) + 1;
+
+            const modal = document.getElementById('thankYouModal');
+            document.getElementById('modalTextContent').innerHTML = `Уважаемый(ая) <strong>${escapeHTML(donorName)}</strong>!<br>Ваш вклад в размере <strong class="text-brand-pink font-num font-bold">${finalAmount.toLocaleString('ru-RU')} ₽</strong> успешно зачислен. Дети Уфы вам искренне благодарны!`;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.add('opacity-100'), 10);
+
+            document.getElementById('donationForm').reset();
+            document.getElementById('donorNameInput').disabled = false;
+            document.getElementById('donorNameInput').classList.remove('opacity-50');
+            setPresetAmount(500, document.querySelectorAll('.preset-btn')[1]);
+        }
+
+        function closeThankYouModal() {
+            const modal = document.getElementById('thankYouModal');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function updateProgressBarUI() {
+            const percentage = Math.min(100, (currentRaised / TARGET_GOAL) * 100).toFixed(1);
+            const remaining = Math.max(0, TARGET_GOAL - currentRaised);
+
+            document.getElementById('currentAmountDisplay').textContent = `${currentRaised.toLocaleString('ru-RU')} ₽`;
+            document.getElementById('remainingAmountDisplay').textContent = `${remaining.toLocaleString('ru-RU')} ₽`;
+            document.getElementById('percentageDisplay').textContent = `${percentage}%`;
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+        }
+
+        function renderDonorsTable() {
+            const container = document.getElementById('donorsListContainer');
+            container.innerHTML = donorsList.map(item => `
+                <div class="px-6 py-3.5 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-pink/10 text-brand-pink flex items-center justify-center text-xs font-bold">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div>
+                            <span class="text-slate-900 font-bold text-sm block">${escapeHTML(item.name)}</span>
+                            <span class="text-slate-400 text-[11px] font-medium">${item.time}</span>
+                        </div>
+                    </div>
+                    <span class="font-num font-bold text-brand-blue text-sm sm:text-base">+ ${item.amount.toLocaleString('ru-RU')} ₽</span>
+                </div>
+            `).join('');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>"']/g, m => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+            }[m]));
+        }
+    </script>
+</body>
+</html>

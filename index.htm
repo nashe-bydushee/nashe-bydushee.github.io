@@ -52,6 +52,98 @@
             overflow-x: hidden;
         }
 
+        /* Основной контейнер формы */
+  .yoomoney-payment-form {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    box-shadow: 0 10px 30px rgba(0, 120, 255, 0.08) !important;
+    border: 1px solid #f0f4f8 !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    max-width: 480px;
+  }
+
+  /* Заголовок «О покупателе» */
+  .yoomoney-payment-form .ym-block-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #0d1b2a !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Поля ввода (ФИО и Сумма) */
+  .yoomoney-payment-form .ym-input {
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    outline: none !important;
+    transition: all 0.2s ease !important;
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+  }
+
+  .yoomoney-payment-form .ym-input:focus {
+    border-color: #0088ff !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(0, 136, 255, 0.15) !important;
+  }
+
+  .yoomoney-payment-form .ym-customer-info {
+    margin-bottom: 20px !important;
+  }
+
+  /* Блок суммы и кнопки */
+  .yoomoney-payment-form .ym-payment-btn-block {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    margin-top: 15px !important;
+  }
+
+  .yoomoney-payment-form .ym-input-icon-rub {
+    position: relative !important;
+    flex: 1 1 130px !important;
+  }
+
+  /* Кнопка оплаты (Розовый градиент в стиле кнопки «ПОМОЧЬ ДЕТЯМ») */
+  .yoomoney-payment-form .ym-btn-pay {
+    background: linear-gradient(135deg, #ff007a 0%, #e6006b 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.3) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .yoomoney-payment-form .ym-btn-pay:hover {
+    background: linear-gradient(135deg, #e6006b 0%, #cc005f 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 0, 122, 0.4) !important;
+  }
+
+  .yoomoney-payment-form .ym-btn-pay:active {
+    transform: translateY(0) !important;
+  }
+
+  /* Логотип ЮKassa */
+  .yoomoney-payment-form .ym-logo {
+    opacity: 0.7 !important;
+    transition: opacity 0.2s ease !important;
+  }
+
+  .yoomoney-payment-form .ym-logo:hover {
+    opacity: 1 !important;
+  }
+
         .font-num {
             font-family: 'Unbounded', sans-serif;
             letter-spacing: -0.02em;
@@ -284,31 +376,32 @@
     
     
 
+    <!-- Основной код формы -->
+<link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.35.0">
+
+<form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
     <div class="ym-customer-info">
         <div class="ym-block-title">О покупателе</div>
-        
-        
         <input name="custName" class="ym-input" placeholder="ФИО" type="text" value="">
-        
-        
-        
     </div>
 
-    <div class="ym-hidden-inputs">
-       
-       
-       
-    </div>
+    <div class="ym-hidden-inputs"></div>
 
     <input name="customerNumber" type="hidden" value="Сбор средств на развитие детей">
-    
+
     <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
         <div class="ym-input-icon-rub">
             <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any">
         </div>
-        <button data-text="Оказать помощь" class="ym-btn-pay ym-result-price"><span class="ym-text-crop">Оказать помощь</span> <span class="ym-price-output"></span></button><img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.35.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+        <button data-text="Оказать помощь" class="ym-btn-pay ym-result-price">
+            <span class="ym-text-crop">Оказать помощь</span> 
+            <span class="ym-price-output"></span>
+        </button>
+        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.35.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
     </div>
-<input name="shopId" type="hidden" value="1475662"></form>
+    <input name="shopId" type="hidden" value="1475662">
+</form>
+
 <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.35.0"></script>
                     </form>
 

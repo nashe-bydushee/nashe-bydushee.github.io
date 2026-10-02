@@ -1,19 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АНО ДДРЦ "Наше будущее" — Детский духовно-развивающий центр в г. Уфа</title>
-    
+
+    <!-- SEO Meta Tags -->
+    <title>АНО ДДРЦ «Наше будущее» — Детский центр развития и воспитания в Уфе</title>
+    <meta name="description" content="Детский духовно-развивающий центр «Наше будущее» в Уфе (ул. Дмитрия Купцова, д. 4). Безопасная среда, помощь педагогов с уроками, духовное и творческое развитие детей от 7 лет совместно с МРО «Фатых». Поддержите проект!">
+    <meta name="keywords" content="детский центр уфа, духовно развивающий центр уфа, продленка уфа кузнецовский затон, ано ддрц наше будущее, мро фатых, развивающие занятия для детей уфа, пожертвования детям уфа">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nashe-bydushee.github.io/">
+
+    <!-- Open Graph Tags (SEO для соцсетей: VK, Telegram, WhatsApp) -->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="АНО ДДРЦ «Наше будущее» — Детский духовно-развивающий центр в г. Уфа">
+    <meta property="og:description" content="Безопасная среда, помощь с домашними заданиями, духовное и творческое развитие детей от 7 лет. Поддержите обустройство центра!">
+    <meta property="og:url" content="https://nashe-bydushee.github.io/">
+    <meta property="og:site_name" content="АНО ДДРЦ Наше будущее">
+    <meta property="og:image" content="https://nashe-bydushee.github.io/logo.jpg">
+    <meta property="og:image:alt" content="Логотип АНО ДДРЦ Наше будущее">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+    <!-- Schema.org Structured Data (Микроразметка) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "АНО ДДРЦ «Наше будущее»",
+      "alternateName": "Детский духовно-развивающий центр «Наше будущее»",
+      "url": "https://nashe-bydushee.github.io/",
+      "logo": "https://nashe-bydushee.github.io/logo.jpg",
+      "image": "https://nashe-bydushee.github.io/logo.jpg",
+      "description": "Детский духовно-развивающий центр в Уфе. Обучение, воспитание, поддержка и развитие детей от 7 лет совместно с МРО «Фатых».",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Дмитрия Купцова, д. 4",
+        "addressLocality": "Уфа",
+        "addressRegion": "Республика Башкортостан",
+        "postalCode": "450000",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 54.6853, 
+        "longitude": 55.9868
+      },
+      "telephone": "+79371536000",
+      "email": "buduchee.nashe@mail.ru",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      ]
+    }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Premium Google Fonts: Plus Jakarta Sans & Unbounded for legible modern numbers -->
+
+    <!-- Google Fonts с оптимизацией загрузки -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&family=Comfortaa:wght@700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -52,107 +116,95 @@
             overflow-x: hidden;
         }
 
-   /* Основной контейнер формы */
-  .yoomoney-payment-form {
-    background: #ffffff !important;
-    border-radius: 24px !important;
-    padding: 24px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid #f0f4f8 !important;
-    font-family: inherit !important;
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-    height: auto !important;
-    overflow: hidden !important; /* Убирает вылезание элементов за пределы формы */
-  }
+        .yoomoney-payment-form {
+            background: #ffffff !important;
+            border-radius: 24px !important;
+            padding: 24px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+            border: 1px solid #f0f4f8 !important;
+            font-family: inherit !important;
+            box-sizing: border-box !important;
+            max-width: 100% !important;
+            height: auto !important;
+            overflow: hidden !important;
+        }
 
-  /* Блок "О покупателе" */
-  .yoomoney-payment-form .ym-customer-info {
-    margin-bottom: 20px !important;
-  }
+        .yoomoney-payment-form .ym-customer-info { margin-bottom: 20px !important; }
+        .yoomoney-payment-form .ym-block-title {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            color: #1a1a1a !important;
+            margin-bottom: 12px !important;
+        }
 
-  .yoomoney-payment-form .ym-block-title {
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    color: #1a1a1a !important;
-    margin-bottom: 12px !important;
-  }
+        .yoomoney-payment-form .ym-input {
+            width: 100% !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 16px !important;
+            padding: 14px 18px !important;
+            font-size: 16px !important;
+            background-color: #f8fafc !important;
+            box-sizing: border-box !important;
+            outline: none !important;
+            transition: border-color 0.2s, box-shadow 0.2s !important;
+        }
 
-  /* Поле ввода ФИО */
-  .yoomoney-payment-form .ym-input {
-    width: 100% !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 16px !important;
-    padding: 14px 18px !important;
-    font-size: 16px !important;
-    background-color: #f8fafc !important;
-    box-sizing: border-box !important;
-    outline: none !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
-  }
+        .yoomoney-payment-form .ym-input:focus {
+            border-color: #0088ff !important;
+            box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.15) !important;
+            background-color: #ffffff !important;
+        }
 
-  .yoomoney-payment-form .ym-input:focus {
-    border-color: #0088ff !important;
-    box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.15) !important;
-    background-color: #ffffff !important;
-  }
+        .yoomoney-payment-form .ym-payment-btn-block {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 12px !important;
+            margin-top: 20px !important;
+            padding-top: 0 !important;
+            height: auto !important;
+            float: none !important;
+        }
 
-  /* Контейнер нижних элементов */
-  .yoomoney-payment-form .ym-payment-btn-block {
-    display: flex !important;
-    flex-wrap: wrap !important; /* Разрешаем перенос на новую строку */
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 12px !important;
-    margin-top: 20px !important;
-    padding-top: 0 !important;
-    height: auto !important;
-    float: none !important;
-  }
+        .yoomoney-payment-form .ym-payment-btn-block::before,
+        .yoomoney-payment-form .ym-payment-btn-block::after { display: none !important; }
 
-  /* Сбрасываем стандартные линии/псевдоэлементы ЮKassa */
-  .yoomoney-payment-form .ym-payment-btn-block::before,
-  .yoomoney-payment-form .ym-payment-btn-block::after {
-    display: none !important;
-  }
+        .yoomoney-payment-form .ym-input-icon-rub {
+            flex: 1 1 140px !important;
+            min-width: 120px !important;
+            margin: 0 !important;
+            float: none !important;
+        }
 
-  /* Поле ввода суммы */
-  .yoomoney-payment-form .ym-input-icon-rub {
-    flex: 1 1 140px !important;
-    min-width: 120px !important;
-    margin: 0 !important;
-    float: none !important;
-  }
+        .yoomoney-payment-form .ym-btn-pay {
+            flex: 1 1 auto !important;
+            background: linear-gradient(135deg, #ff007a 0%, #e6006b 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 30px !important;
+            padding: 14px 24px !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            text-align: center !important;
+            box-shadow: 0 4px 15px rgba(255, 0, 122, 0.35) !important;
+            transition: transform 0.2s, box-shadow 0.2s !important;
+            height: auto !important;
+            line-height: normal !important;
+            float: none !important;
+        }
 
-  /* Кнопка оплаты */
-  .yoomoney-payment-form .ym-btn-pay {
-    flex: 1 1 auto !important;
-    background: linear-gradient(135deg, #ff007a 0%, #e6006b 100%) !important;
-    color: #ffffff !important;
-    border: none !important;
-    border-radius: 30px !important;
-    padding: 14px 24px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    box-shadow: 0 4px 15px rgba(255, 0, 122, 0.35) !important;
-    transition: transform 0.2s, box-shadow 0.2s !important;
-    height: auto !important;
-    line-height: normal !important;
-    float: none !important;
-  }
+        .yoomoney-payment-form .ym-btn-pay:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(255, 0, 122, 0.45) !important;
+        }
 
-  .yoomoney-payment-form .ym-btn-pay:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(255, 0, 122, 0.45) !important;
-  }
         .font-num {
             font-family: 'Unbounded', sans-serif;
             letter-spacing: -0.02em;
         }
 
-        /* Glassmorphism & Visual Depth */
         .glass-header {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(16px);
@@ -165,11 +217,10 @@
             border: 1px solid rgba(226, 232, 240, 0.9);
         }
 
-        /* Luxury Soft Glow Shadows */
         .shadow-luxury {
             box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.05), 0 15px 35px -15px rgba(0, 133, 255, 0.08);
         }
-        
+
         .shadow-pink-glow {
             box-shadow: 0 12px 28px -6px rgba(255, 0, 102, 0.35);
         }
@@ -178,11 +229,10 @@
             box-shadow: 0 12px 28px -6px rgba(0, 133, 255, 0.25);
         }
 
-        /* Ambient Blobs */
         .ambient-blob-1 {
             background: radial-gradient(circle, rgba(0, 133, 255, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
         }
-        
+
         .ambient-blob-2 {
             background: radial-gradient(circle, rgba(255, 0, 102, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
         }
@@ -191,12 +241,11 @@
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.88; transform: scale(1.03); }
         }
-        
+
         .animate-subtle-pulse {
             animation: subtlePulse 3s infinite ease-in-out;
         }
 
-        /* Custom Modern Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #FFFFFF; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }

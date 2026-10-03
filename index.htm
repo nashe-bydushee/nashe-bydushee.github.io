@@ -237,6 +237,15 @@
             background: radial-gradient(circle, rgba(255, 0, 102, 0.07) 0%, rgba(255, 255, 255, 0) 70%);
         }
 
+        /* Скрытие полосы прокрутки слайдера */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         @keyframes subtlePulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.88; transform: scale(1.03); }
@@ -258,14 +267,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex justify-between items-center">
             
             <!-- Precise Vector SVG Logo Recreation -->
-            <!-- Логотип картинкой по ссылке -->
-<a href="https://nashe-bydushee.github.io/" class="flex items-center shrink-0" title="АНО ДДРЦ Наше будущее">
-    <img 
-        src="logo.jpg" 
-        alt="АНО ДДРЦ Наше будущее" 
-        class="h-16 sm:h-24 w-[96px] sm:w-[144px] object-contain"
-    />
-</a>
+            <a href="https://nashe-bydushee.github.io/" class="flex items-center shrink-0" title="АНО ДДРЦ Наше будущее">
+                <img 
+                    src="logo.jpg" 
+                    alt="АНО ДДРЦ Наше будущее" 
+                    class="h-16 sm:h-24 w-[96px] sm:w-[144px] object-contain"
+                />
+            </a>
+
             <!-- Quick Contacts Info Minimalist Display -->
             <div class="hidden lg:flex items-center gap-8 text-xs font-semibold text-slate-600">
                 <div class="flex items-center gap-3">
@@ -329,7 +338,7 @@
                     </span>
                 </h1>
 
-                <!-- EXACT WELCOME TEXT (STRICT REQUIREMENT) -->
+                <!-- EXACT WELCOME TEXT -->
                 <div class="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                     <p class="border-l-4 border-brand-pink pl-4 py-1 font-medium text-slate-900 bg-brand-softGrey p-3 rounded-r-2xl border-y border-r border-slate-200/60">
                         <strong>АНО ДДРЦ «Наше будущее»</strong> — детский духовно-развивающий центр в городе Уфе (<span class="text-slate-900 font-semibold">ул. Дмитрия Купцова, д. 4</span>). Мы работаем совместно с местной мусульманской религиозной организацией <strong>«Фатых»</strong> и создаём пространство, где дети от 7 лет получают всестороннее развитие в атмосфере уважения, заботы и духовных ценностей.
@@ -394,7 +403,7 @@
 
                         <!-- Progress Line -->
                         <div class="w-full h-3.5 bg-slate-100 rounded-full overflow-hidden p-0.5 relative">
-                            <div id="progressBar" class="h-full bg-gradient-to-r from-brand-blue via-brand-pink to-brand-green rounded-full transition-all duration-1000 ease-out" style="width: 34%;"></div>
+                            <div id="progressBar" class="h-full bg-gradient-to-r from-brand-blue via-brand-pink to-brand-green rounded-full transition-all duration-1000 ease-out" style="width: 0%;"></div>
                         </div>
 
                         <div class="flex justify-between text-xs font-semibold text-slate-500 pt-0.5">
@@ -403,40 +412,121 @@
                         </div>
                     </div>
 
-                    <br><link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.35.0">
-<form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8" >
+                    <!-- Форма оплаты ЮKassa -->
+                    <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.35.0">
 
-    
-    
+                    <form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
+                        <div class="ym-customer-info">
+                            <div class="ym-block-title">О покупателе</div>
+                            <input name="custName" class="ym-input" placeholder="ФИО" type="text" value="">
+                        </div>
 
-    <!-- Основной код формы -->
-<link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.35.0">
+                        <div class="ym-hidden-inputs"></div>
 
-<form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
-    <div class="ym-customer-info">
-        <div class="ym-block-title">О покупателе</div>
-        <input name="custName" class="ym-input" placeholder="ФИО" type="text" value="">
-    </div>
+                        <input name="customerNumber" type="hidden" value="Сбор средств на развитие детей">
 
-    <div class="ym-hidden-inputs"></div>
-
-    <input name="customerNumber" type="hidden" value="Сбор средств на развитие детей">
-
-    <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
-        <div class="ym-input-icon-rub">
-            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any">
-        </div>
-        <button data-text="Оказать помощь" class="ym-btn-pay ym-result-price">
-            <span class="ym-text-crop">Оказать помощь</span> 
-            <span class="ym-price-output"></span>
-        </button>
-    </div>
-    <input name="shopId" type="hidden" value="1475662">
-</form>
-
-<script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.35.0"></script>
+                        <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
+                            <div class="ym-input-icon-rub">
+                                <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any">
+                            </div>
+                            <button data-text="Оказать помощь" class="ym-btn-pay ym-result-price">
+                                <span class="ym-text-crop">Оказать помощь</span> 
+                                <span class="ym-price-output"></span>
+                            </button>
+                        </div>
+                        <input name="shopId" type="hidden" value="1475662">
                     </form>
 
+                    <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.35.0"></script>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ: ИНТЕРАКТИВНАЯ ГАЛЕРЕЯ-СЛАЙДЕР И RUTUBE ВИДЕО -->
+    <section class="py-16 px-4 sm:px-8 bg-brand-softGrey border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-brand-pink text-xs font-extrabold uppercase tracking-widest block">Пространство центра</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Галерея проекта</h2>
+                <p class="text-slate-500 text-xs sm:text-sm">
+                    Листайте фотографии влево и вправо для просмотра помещений и атмосферы центра.
+                </p>
+            </div>
+
+            <!-- Интерактивная галерея-слайдер -->
+            <div class="relative max-w-4xl mx-auto group">
+                
+                <!-- Оболочка слайдов с горизонтальным скроллом/свайпом -->
+                <div id="gallerySlider" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-3xl bg-slate-900 shadow-luxury border border-slate-200/80">
+                    
+                    <!-- Слайд 1 -->
+                    <div class="snap-center shrink-0 w-full relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden flex items-center justify-center bg-slate-900">
+                        <img src="img1.png" alt="Учебные классы АНО ДДРЦ Наше будущее" class="w-full h-full object-cover" onerror="this.src='img1.png'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-black/20 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Слайд 2 -->
+                    <div class="snap-center shrink-0 w-full relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden flex items-center justify-center bg-slate-900">
+                        <img src="img2.png" alt="Игровая и развивающая зона" class="w-full h-full object-cover" onerror="this.src='img2.png'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-black/20 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Слайд 3 -->
+                    <div class="snap-center shrink-0 w-full relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden flex items-center justify-center bg-slate-900">
+                        <img src="img3.png" alt="Творческая мастерская" class="w-full h-full object-cover" onerror="this.src='img3.png'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-black/20 pointer-events-none"></div>
+                    </div>
+
+                </div>
+
+                <!-- Кнопка «Назад» (Влево) -->
+                <button onclick="slideGallery('left')" class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/80 hover:bg-white text-slate-900 flex items-center justify-center shadow-lg backdrop-blur-md transition-all active:scale-95 focus:outline-none z-20" aria-label="Предыдущий слайд">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+
+                <!-- Кнопка «Вперёд» (Вправо) -->
+                <button onclick="slideGallery('right')" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/80 hover:bg-white text-slate-900 flex items-center justify-center shadow-lg backdrop-blur-md transition-all active:scale-95 focus:outline-none z-20" aria-label="Следующий слайд">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+
+                <!-- Индикаторы (Точки пагинации) -->
+                <div class="flex justify-center items-center gap-2 mt-4" id="galleryDots">
+                    <button onclick="goToSlide(0)" class="gallery-dot w-6 h-3 rounded-full bg-brand-pink transition-all"></button>
+                    <button onclick="goToSlide(1)" class="gallery-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
+                    <button onclick="goToSlide(2)" class="gallery-dot w-3 h-3 rounded-full bg-slate-300 transition-all"></button>
+                </div>
+
+            </div>
+
+            <!-- Плеер RUTUBE -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6 max-w-4xl mx-auto">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-widest text-brand-pink bg-brand-pink/10 px-3 py-1 rounded-full mb-2">
+                            <i class="fa-solid fa-play text-[10px]"></i> Видео на RUTUBE
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900">Презентация центра «Наше будущее»</h3>
+                    </div>
+                    <p class="text-slate-500 text-xs max-w-sm">
+                        Узнайте подробнее о наших целях, атмосфере занятий и условиях для детей в Уфе.
+                    </p>
+                </div>
+
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-luxury">
+                    <iframe 
+                        src="https://rutube.ru/play/embed/d294a4a763d5271899d73c045be95eff" 
+                        frameborder="0" 
+                        allow="clipboard-write; autoplay" 
+                        webkitAllowFullScreen 
+                        mozallowfullscreen 
+                        allowmeta="true"
+                        allowfullscreen
+                        class="absolute top-0 left-0 w-full h-full border-0">
+                    </iframe>
                 </div>
             </div>
 
@@ -596,11 +686,8 @@
     <script>
         const TARGET_GOAL = 2000000;
         let currentRaised = 0;
-        let selectedPresetAmount = 500;
 
-        let donorsList = [
-            
-        ];
+        let donorsList = [];
 
         document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
@@ -609,81 +696,40 @@
             updateProgressBarUI();
         });
 
-        function setPresetAmount(amount, buttonElement) {
-            selectedPresetAmount = amount;
-            document.getElementById('customAmountInput').value = '';
-
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                btn.classList.remove('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
-                btn.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-800');
-            });
-
-            if (buttonElement) {
-                buttonElement.classList.add('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
-                buttonElement.classList.remove('border', 'border-slate-200', 'bg-white', 'text-slate-800');
-            }
-        }
-
-        function clearPresetActiveState() {
-            selectedPresetAmount = 0;
-            document.querySelectorAll('.preset-btn').forEach(btn => {
-                btn.classList.remove('active', 'border-2', 'border-brand-pink', 'bg-brand-pink', 'text-white', 'shadow-pink-glow');
-                btn.classList.add('border', 'border-slate-200', 'bg-white', 'text-slate-800');
-            });
-        }
-
-        function toggleAnonymousInput(checkbox) {
-            const nameInput = document.getElementById('donorNameInput');
-            if (checkbox.checked) {
-                nameInput.value = '';
-                nameInput.disabled = true;
-                nameInput.placeholder = "Анонимный благотворитель";
-                nameInput.classList.add('opacity-50');
+        /* Скрипт прокрутки слайдера галереи */
+        function slideGallery(direction) {
+            const slider = document.getElementById('gallerySlider');
+            const slideWidth = slider.clientWidth;
+            if (direction === 'left') {
+                slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
             } else {
-                nameInput.disabled = false;
-                nameInput.placeholder = "Ваше Имя (для табло меценатов)";
-                nameInput.classList.remove('opacity-50');
+                slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
             }
         }
 
-        function processDonation(e) {
-            e.preventDefault();
+        function goToSlide(index) {
+            const slider = document.getElementById('gallerySlider');
+            const slideWidth = slider.clientWidth;
+            slider.scrollTo({ left: slideWidth * index, behavior: 'smooth' });
+        }
 
-            const customValue = parseFloat(document.getElementById('customAmountInput').value);
-            const finalAmount = (customValue && customValue > 0) ? customValue : selectedPresetAmount;
-
-            if (!finalAmount || finalAmount <= 0) {
-                alert('Пожалуйста, выберите или введите сумму пожертвования.');
-                return;
-            }
-
-            const isAnonymous = document.getElementById('anonymousCheckbox').checked;
-            const enteredName = document.getElementById('donorNameInput').value.trim();
-            const donorName = (isAnonymous || !enteredName) ? "Анонимный благотворитель" : enteredName;
-
-            currentRaised += finalAmount;
-            updateProgressBarUI();
-
-            donorsList.unshift({
-                name: donorName,
-                amount: finalAmount,
-                time: "Только что"
+        // Автоматическое обновление активной точки при скролле или свайпе
+        const slider = document.getElementById('gallerySlider');
+        if (slider) {
+            slider.addEventListener('scroll', () => {
+                const slideWidth = slider.clientWidth;
+                const activeIndex = Math.round(slider.scrollLeft / slideWidth);
+                const dots = document.querySelectorAll('.gallery-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === activeIndex) {
+                        dot.classList.remove('bg-slate-300', 'w-3');
+                        dot.classList.add('bg-brand-pink', 'w-6');
+                    } else {
+                        dot.classList.remove('bg-brand-pink', 'w-6');
+                        dot.classList.add('bg-slate-300', 'w-3');
+                    }
+                });
             });
-            renderDonorsTable();
-
-            const countEl = document.getElementById('donorsCount');
-            countEl.textContent = parseInt(countEl.textContent) + 1;
-
-            const modal = document.getElementById('thankYouModal');
-            document.getElementById('modalTextContent').innerHTML = `Уважаемый(ая) <strong>${escapeHTML(donorName)}</strong>!<br>Ваш вклад в размере <strong class="text-brand-pink font-num font-bold">${finalAmount.toLocaleString('ru-RU')} ₽</strong> успешно зачислен. Дети Уфы вам искренне благодарны!`;
-            
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.add('opacity-100'), 10);
-
-            document.getElementById('donationForm').reset();
-            document.getElementById('donorNameInput').disabled = false;
-            document.getElementById('donorNameInput').classList.remove('opacity-50');
-            setPresetAmount(500, document.querySelectorAll('.preset-btn')[1]);
         }
 
         function closeThankYouModal() {
@@ -704,6 +750,10 @@
 
         function renderDonorsTable() {
             const container = document.getElementById('donorsListContainer');
+            if (donorsList.length === 0) {
+                container.innerHTML = `<div class="px-6 py-4 text-center text-xs text-slate-400">Пока нет пожертвований. Станьте первым!</div>`;
+                return;
+            }
             container.innerHTML = donorsList.map(item => `
                 <div class="px-6 py-3.5 flex justify-between items-center hover:bg-slate-50 transition-colors">
                     <div class="flex items-center gap-3">
